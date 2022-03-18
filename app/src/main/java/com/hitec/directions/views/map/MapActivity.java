@@ -106,8 +106,7 @@ public class MapActivity extends AppCompatActivity {
         setUpPermissionManager();
 
         mapActivityViewModel.setUpNetworkRequest();
-        //Test\\
-        //mapActivityViewModel.fetchDestinationCoordinates("San Diego Zoo");
+
         searchLocation();
 
 
@@ -115,7 +114,7 @@ public class MapActivity extends AppCompatActivity {
             if(searchInput.getText().length() > 1) {
                 startDirectionsActivity(currentLatitude, currentLongitude, destinationLatitude, destinationLongitude);
             }else{
-                showDialogue("Error","Destination is empty", "OK");
+                showDialogue("Error","Destination is empty, please enter a place to go:)", "OK");
             }
         });
     }
@@ -232,6 +231,7 @@ public class MapActivity extends AppCompatActivity {
                             destinationLongitude = Double.parseDouble(center.get(0));
                             destinationLatitude = Double.parseDouble(center.get(1));
 
+                            //TODO:: Mark Destination on Map
                             markerHelperClass.setLat(destinationLatitude);
                             markerHelperClass.setLong(destinationLongitude);
                             markerHelperClass.initializeMapBox(mapView);

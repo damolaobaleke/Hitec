@@ -25,14 +25,15 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_directions" />
+        app:srcCompat="@android:drawable/ic_menu_directions"
+        android:focusable="true" />
 
     <EditText
         android:id="@+id/location_input_search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/custom_search_bar"
         android:hint="@string/destination"
