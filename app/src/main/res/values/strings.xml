@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hitec</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZGFtb2xhb2JhbGVrZSIsImEiOiJjbDB1YWk4YXMwdmQzM2xvcG05dTN2eGxrIn0.uW8BAb8iiOm2sXXwWbCsCw</string>
+    <string name="destination">destination</string>
+</resources>
