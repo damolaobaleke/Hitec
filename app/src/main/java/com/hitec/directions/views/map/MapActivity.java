@@ -211,6 +211,7 @@ public class MapActivity extends AppCompatActivity {
     //Destination
     private void searchLocation(){
         MarkerHelperClass markerHelperClass = new MarkerHelperClass(this);
+        markerHelperClass.setMapView(mapView);
 
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -226,7 +227,7 @@ public class MapActivity extends AppCompatActivity {
                         @Override
                         public void onChanged(List<String> center) {
 
-                            Log.i(TAG, "\n"+center.get(0)+"::"+center.get(1));
+                            Log.i(TAG, "dest \n"+center.get(0)+"::"+center.get(1));
 
                             destinationLongitude = Double.parseDouble(center.get(0));
                             destinationLatitude = Double.parseDouble(center.get(1));
@@ -234,8 +235,7 @@ public class MapActivity extends AppCompatActivity {
                             //TODO:: Mark Destination on Map
                             markerHelperClass.setLat(destinationLatitude);
                             markerHelperClass.setLong(destinationLongitude);
-                            markerHelperClass.initializeMapBox(mapView);
-
+                            markerHelperClass.setDestinationMarker();
                         }
                     });
                 }
@@ -280,7 +280,7 @@ public class MapActivity extends AppCompatActivity {
             double currentLatitude = lastLocation.getLatitude();
             double currentLongitude = lastLocation.getLongitude();
 
-            Log.i("MapsStaticActivity", currentLatitude+" ::lat<--->long:: "+currentLongitude);
+            //Log.i("MapsStaticActivity", currentLatitude+" ::lat<--->long:: "+currentLongitude);
 
         }
 
