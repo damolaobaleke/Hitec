@@ -98,7 +98,6 @@ public class MapActivity extends AppCompatActivity {
         // obtain the best location engine that is available
         locationEngine = LocationEngineProvider.getBestLocationEngine(this);
 
-        //
         mapListeners = new MapListeners(mapView, this);
 
         //
@@ -145,7 +144,6 @@ public class MapActivity extends AppCompatActivity {
                 if (granted) {
                     // activate the Maps SDK's LocationComponent to show the device's location
                     displayCurrentLocation();
-                    //Request location updates
                 } else {
                     showDialogue(Constants.INSTANCE.getDIALOGUE_TITLE(), Constants.INSTANCE.getDIALOGUE_MESSAGE(), Constants.INSTANCE.getDIALOGUE_NEGATIVE_BTN_TEXT());
                 }
@@ -199,12 +197,14 @@ public class MapActivity extends AppCompatActivity {
         locationEngine.getLastLocation(callback);
 
         //
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        currentLongitude = location.getLongitude();
-        currentLatitude = location.getLatitude();
+        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location != null) {
+            currentLongitude = location.getLongitude();
+            currentLatitude = location.getLatitude();
 
-        Log.i(TAG, currentLatitude+"lat::lng"+currentLongitude);
+            Log.i(TAG, currentLatitude + "lat::lng" + currentLongitude);
+        }
 
     }
 
@@ -232,7 +232,7 @@ public class MapActivity extends AppCompatActivity {
                             destinationLongitude = Double.parseDouble(center.get(0));
                             destinationLatitude = Double.parseDouble(center.get(1));
 
-                            //TODO:: Mark Destination on Map
+
                             markerHelperClass.setLat(destinationLatitude);
                             markerHelperClass.setLong(destinationLongitude);
                             markerHelperClass.setDestinationMarker();
@@ -255,7 +255,7 @@ public class MapActivity extends AppCompatActivity {
         intent.putExtra(Constants.INSTANCE.getCURRENT_LONGITUDE(), currentLongitude);
         intent.putExtra(Constants.INSTANCE.getDESTINATION_LATITUDE(), destinationLatitude);
         intent.putExtra(Constants.INSTANCE.getDESTINATION_LONGITUDE(), destinationLongitude);
-        intent.putExtra("destination", input);
+        intent.putExtra(Constants.INSTANCE.getDESTINATION(), input);
 
         startActivity(intent);
     }
@@ -275,10 +275,6 @@ public class MapActivity extends AppCompatActivity {
         @Override
         public void onSuccess(LocationEngineResult locationEngineResult) {
             Location lastLocation = locationEngineResult.getLastLocation();
-
-            assert lastLocation != null;
-            double currentLatitude = lastLocation.getLatitude();
-            double currentLongitude = lastLocation.getLongitude();
 
             //Log.i("MapsStaticActivity", currentLatitude+" ::lat<--->long:: "+currentLongitude);
 

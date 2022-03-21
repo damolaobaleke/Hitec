@@ -33,8 +33,7 @@ class MapListeners(var mapView: MapView, var context: Context) {
             this.enabled = true
             this.locationPuck = LocationPuck2D(
 
-                bearingImage = AppCompatResources.getDrawable(context, R.drawable.mapbox_user_puck_icon,),
-                shadowImage = AppCompatResources.getDrawable(context, R.drawable.mapbox_user_icon_shadow,),
+                bearingImage = AppCompatResources.getDrawable(context, R.drawable.ic_baseline_person_pin_circle_24),
 
                 scaleExpression = interpolate {
                     linear()

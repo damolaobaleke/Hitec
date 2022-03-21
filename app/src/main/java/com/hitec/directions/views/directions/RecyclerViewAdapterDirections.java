@@ -45,6 +45,7 @@ public class RecyclerViewAdapterDirections extends RecyclerView.Adapter<Recycler
     }
 
     /*Click events & interface*/
+    //TODO
     /*Click events & interface*/
 
     static class ViewHolder extends RecyclerView.ViewHolder {

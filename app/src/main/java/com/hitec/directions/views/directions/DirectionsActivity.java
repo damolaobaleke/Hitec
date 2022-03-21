@@ -51,7 +51,7 @@ public class DirectionsActivity extends AppCompatActivity {
         currentLongitude = intent.getDoubleExtra(Constants.INSTANCE.getCURRENT_LONGITUDE(), 0.0);
         destinationLatitude = intent.getDoubleExtra(Constants.INSTANCE.getDESTINATION_LATITUDE(), 0.0);
         destinationLongitude = intent.getDoubleExtra(Constants.INSTANCE.getDESTINATION_LONGITUDE(), 0.0);
-        destination = intent.getStringExtra("destination");
+        destination = intent.getStringExtra(Constants.INSTANCE.getDESTINATION());
 
         textViewDestination.setText(String.format("Destination: %s", destination));
 
@@ -85,6 +85,5 @@ public class DirectionsActivity extends AppCompatActivity {
         recyclerViewDirections = findViewById(R.id.recyclerViewDirections);
         recyclerViewDirections.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewDirections.setHasFixedSize(true);
-
     }
 }

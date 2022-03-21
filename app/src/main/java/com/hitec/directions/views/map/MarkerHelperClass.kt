@@ -57,7 +57,7 @@ class MarkerHelperClass {
             it!!.setCamera(
                 CameraOptions.Builder()
                     .center(Point.fromLngLat(LONGITUDE, LATITUDE))
-                    .zoom(8.0)
+                    .zoom(9.0)
                     .build()
             )
         }!!.loadStyle(

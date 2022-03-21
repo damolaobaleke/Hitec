@@ -16,4 +16,5 @@ object Constants {
     var CURRENT_LONGITUDE = "currentLongitude"
     var DESTINATION_LATITUDE = "destinationLatitude"
     var DESTINATION_LONGITUDE = "destinationLongitude"
+    var DESTINATION = "destination"
 }
