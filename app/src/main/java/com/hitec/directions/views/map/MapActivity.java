@@ -265,8 +265,6 @@ public class MapActivity extends AppCompatActivity {
         //prevent memory leak
         private final WeakReference<MapActivity> activityWeakReference;
 
-        public double lat;
-
         LocationListeningCallback(MapActivity activity) {
             this.activityWeakReference = new WeakReference<>(activity);
         }
@@ -276,7 +274,6 @@ public class MapActivity extends AppCompatActivity {
         public void onSuccess(LocationEngineResult locationEngineResult) {
             Location lastLocation = locationEngineResult.getLastLocation();
 
-            //Log.i("MapsStaticActivity", currentLatitude+" ::lat<--->long:: "+currentLongitude);
 
         }
 
@@ -285,8 +282,5 @@ public class MapActivity extends AppCompatActivity {
             Log.e("Error", e.getMessage());
         }
 
-        public double getLat() {
-            return lat;
-        }
     }
 }

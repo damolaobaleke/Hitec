@@ -64,7 +64,7 @@ class MarkerHelperClass {
             styleExtension = style(Style.MAPBOX_STREETS) {
             // prepare blue marker from resources
                 +image(RED_ICON_ID) {
-                    bitmap(BitmapFactory.decodeResource(getContext().resources, R.drawable.red_marker))
+                    bitmap(BitmapFactory.decodeResource(getContext().resources, R.drawable.red_marker_destination))
                 }
                 +geoJsonSource(SOURCE_ID) {
                     geometry(Point.fromLngLat(LONGITUDE, LATITUDE))

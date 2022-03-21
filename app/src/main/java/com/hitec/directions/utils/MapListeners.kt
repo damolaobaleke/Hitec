@@ -9,15 +9,8 @@ import com.hitec.directions.R
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import com.mapbox.maps.CameraOptions
-import com.mapbox.maps.plugin.gestures.GesturesPlugin
-import com.mapbox.maps.plugin.gestures.GesturesPluginImpl
-import com.mapbox.maps.plugin.MapPlugin
 import com.mapbox.android.gestures.MoveGestureDetector
-import com.mapbox.common.ValueConverter.toJson
 import com.mapbox.maps.extension.style.expressions.dsl.generated.interpolate
-import com.mapbox.maps.extension.style.expressions.generated.Expression.Companion.linear
-import com.mapbox.maps.extension.style.expressions.generated.Expression.Companion.literal
-import com.mapbox.maps.extension.style.expressions.generated.Expression.Companion.zoom
 import com.mapbox.maps.plugin.LocationPuck2D
 import com.mapbox.maps.plugin.gestures.gestures
 import com.mapbox.maps.plugin.locationcomponent.location
@@ -33,7 +26,7 @@ class MapListeners(var mapView: MapView, var context: Context) {
             this.enabled = true
             this.locationPuck = LocationPuck2D(
 
-                bearingImage = AppCompatResources.getDrawable(context, R.drawable.ic_baseline_person_pin_circle_24),
+                bearingImage = AppCompatResources.getDrawable(context, R.drawable.ic_baseline_person_pin_circle_60),
 
                 scaleExpression = interpolate {
                     linear()
@@ -58,7 +51,7 @@ class MapListeners(var mapView: MapView, var context: Context) {
     }
 
     private fun onCameraTrackingDismissed() {
-        Toast.makeText(context, "onCameraTrackingDismissed", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, "onCameraTrackingDismissed", Toast.LENGTH_SHORT).show()
         mapView.location.removeOnIndicatorPositionChangedListener(onIndicatorPositionChangedListener)
         mapView.location.removeOnIndicatorBearingChangedListener(onIndicatorBearingChangedListener)
         mapView.gestures.removeOnMoveListener(onMoveListener)
